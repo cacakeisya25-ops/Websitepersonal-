@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kasir Toko Kebutuhan Sehari-hari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Aplikasi Kasir Toko Kebutuhan Sehari-hari</h1>
+        <nav>
+            <button onclick="showSection('stok')">Stok Barang</button>
+            <button onclick="showSection('penjualan')">Penjualan</button>
+            <button onclick="showSection('hutang')">Hutang Pelanggan</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Halaman Stok -->
+        <section id="stok" class="section">
+            <h2>Kelola Stok Barang</h2>
+            <form id="stokForm">
+                <label>Kategori:</label>
+                <select id="kategori">
+                    <option value="Sembako">Sembako</option>
+                    <option value="Bahan Makanan Tambahan">Bahan Makanan Tambahan</option>
+                    <option value="Minuman">Minuman</option>
+                    <option value="Kebutuhan Mandi dan Kebersihan">Kebutuhan Mandi dan Kebersihan</option>
+                    <option value="Kebutuhan Rumah Tangga">Kebutuhan Rumah Tangga</option>
+                    <option value="Kebutuhan Bayi dan Anak">Kebutuhan Bayi dan Anak</option>
+                    <option value="Jajanan dan Snack">Jajanan dan Snack</option>
+                    <option value="Kebutuhan Lainnya">Kebutuhan Lainnya</option>
+                </select>
+                <label>Nama Barang:</label>
+                <input type="text" id="namaBarang" required>
+                <label>Harga:</label>
+                <input type="number" id="harga" required>
+                <label>Stok:</label>
+                <input type="number" id="stok" required>
+                <button type="submit">Tambah Barang</button>
+            </form>
+            <h3>Daftar Barang</h3>
+            <div id="daftarBarang"></div> <!-- Diubah dari <ul> ke <div> untuk fleksibilitas -->
+        </section>
+
+        <!-- Halaman Penjualan -->
+        <section id="penjualan" class="section hidden">
+            <h2>Proses Penjualan</h2>
+            <div id="keranjang">
+                <h3>Keranjang Belanja</h3>
+                <ul id="listKeranjang"></ul>
+                <p>Total: Rp <span id="total">0</span></p>
+                <button onclick="prosesPembayaran()">Proses Pembayaran</button>
+            </div>
+            <h3>Pilih Barang</h3>
+            <div id="daftarBarangPenjualan"></div>
+        </section>
+
+        <!-- Halaman Hutang -->
+        <section id="hutang" class="section hidden">
+            <h2>Kelola Hutang Pelanggan</h2>
+            <form id="hutangForm">
+                <label>Nama Pelanggan:</label>
+                <input type="text" id="namaPelanggan" required>
+                <label>Jumlah Hutang:</label>
+                <input type="number" id="jumlahHutang" required>
+                <button type="submit">Tambah Hutang</button>
+            </form>
+            <h3>Daftar Hutang</h3>
+            <ul id="daftarHutang"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
